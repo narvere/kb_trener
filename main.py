@@ -45,7 +45,6 @@ def programm(key):
 def programm2(key):
     start_time = datetime.now()
     wrong = 0
-    ok = 0
     total = 1
 
     while total <= num_words:
@@ -53,20 +52,22 @@ def programm2(key):
         for i in range(num_letters):
             sign1 = random.choice(key)
             sign += sign1
-        print(total, "-", sign)
-        answer = input()
+        answer = printing(sign, total)
         while sign != answer:
             print("Wrong!")
-            print(total, "-", sign)
-            answer = input()
+            answer = printing(sign, total)
             wrong += 1
         print("OK!")
-        ok += 1
         total += 1
     stop = datetime.now() - start_time
     print(stop)
-    print(f"Правильно/неправильно: {ok}/{wrong}")
-    ok += 1
+    print(f"Неправильно: {wrong}")
+
+
+def printing(sign, total):
+    print(total, "-", sign)
+    answer = input()
+    return answer
 
 
 def chose_game(x):
