@@ -7,7 +7,9 @@ dictionary = {"r_ukaz_p": ["н", "г", "р", "о", "т", "ь"],
               "r_srd_p": ["ш", "л", "б", ],
               "l_srd_p": ["у", "в", "с", ], }
 num_words = 10
-num_letters = 7
+
+
+# num_letters = 14
 
 
 def target():
@@ -42,7 +44,7 @@ def programm(key):
     ok += 1
 
 
-def programm2(key):
+def programm2(key, num_letters):
     start_time = datetime.now()
     wrong = 0
     total = 1
@@ -70,22 +72,32 @@ def printing(sign, total):
     return answer
 
 
-def chose_game(x):
+def chose_game(x, num_letters):
     intro(x)
     time.sleep(5)
-    programm2(x)
+    programm2(x, num_letters)
     # target()
 
 
 def main():
     while True:
-        what = input("Какой палец тренируем? (1 - указательный): ")
-        if what == '1':
-            chose_game(dictionary['r_ukaz_p'])
-        if what == '2':
-            chose_game(dictionary['l_ukaz_p'])
-        if what == '3':
-            chose_game(dictionary['r_ukaz_p'] + dictionary['l_ukaz_p'])
+        what = input(
+            "Какой палец тренируем?\n* о - правый указательный\n"
+            "* а - левый указательный\n* оа - правый и левый указательный\n"
+            "* л - правый средний\n")
+        if what == 'о':
+            chose_game(dictionary['r_ukaz_p'], num_letters=7)
+
+        if what == 'а':
+            chose_game(dictionary['l_ukaz_p'], num_letters=7)
+        if what == 'оа':
+            chose_game(dictionary['r_ukaz_p'] + dictionary['l_ukaz_p'], num_letters=10)
+        if what == 'л':
+            chose_game(dictionary['r_srd_p'], num_letters=7)
+        if what == 'в':
+            chose_game(dictionary['l_srd_p'], num_letters=7)
+        if what == 'лв':
+            chose_game(dictionary['r_srd_p'] + dictionary['l_srd_p'], num_letters=10)
 
 
 if __name__ == '__main__':
