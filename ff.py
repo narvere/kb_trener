@@ -40,18 +40,13 @@ def update_time(play_time, my_choice):
     """Update the play time for a given letter in the database."""
     # print(str(play_time))
     old_time = get_saved_time(my_choice)
-    if old_time is not None and old_time > str(play_time):
-    # if old_time > str(play_time):
+    if old_time is None:
+        save_time(my_choice, play_time)
+    elif old_time > str(play_time):
         print("*" * 20)
         print(f"Поздрвлем! У вас рекорд: {str(play_time)}")
         print("*" * 20)
         save_time(my_choice, play_time)
-        # print(old_time, str(play_time))
-        # print(f"olen siin ")
-    # else:
-    #     pass
-        # print(old_time, str(play_time))
-        #save_time(my_choice, play_time)
 
 
 def get_letters_list(main_letter):
