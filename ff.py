@@ -7,6 +7,7 @@ NUM_WORDS = 10
 DB_NAME = 'keyboard_trainer.sql3'
 TABLE_NAME = 'my_records'
 
+test_branch
 
 def get_saved_time(my_choice):
     """
